@@ -55,8 +55,6 @@ int main(int argc, char **argv)
 
     QApplication app(argc, argv);
 
-    KComponentData mainComponentData("zanshin");
-
     KSharedConfig::Ptr config = KSharedConfig::openConfig("zanshin-migratorrc");
     KConfigGroup group = config->group("Migrations");
     if (!group.readEntry("Migrated021Projects", false)) {

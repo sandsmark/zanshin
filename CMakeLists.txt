@@ -1,12 +1,18 @@
 project(zanshin)
+cmake_minimum_required(VERSION 2.8.12)
 
-find_package(KDE4 REQUIRED)
-find_package(KdepimLibs REQUIRED)
+find_package(ECM REQUIRED CONFIG)
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/ ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
+
 find_package(Boost REQUIRED)
-find_package(Baloo REQUIRED)
-macro_log_feature(KDEPIMLIBS_FOUND "kdepimlibs" "KDE PIM libraries" "The KDE PIM libs are required to build Zanshin" "http://www.kde.org")
+include(KDEInstallDirs)
+include(KDECompilerSettings)
+include(KDECMakeSettings)
+include(FeatureSummary)
+include(ECMInstallIcons)
+include(ECMMarkAsTest)
 
-include(KDE4Defaults)
+find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Core Gui Widgets Script Test)
 
 macro(assert_min_ver version)
     set(error_msg "${CMAKE_CXX_COMPILER} ${CMAKE_CXX_COMPILER_VERSION} not supported")
@@ -57,33 +63,42 @@ add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 include_directories (
     ${CMAKE_SOURCE_DIR}
     ${CMAKE_BINARY_DIR}
-    ${KDE4_INCLUDES}
+
     ${KDEPIMLIBS_INCLUDE_DIRS}
     ${Boost_INCLUDE_DIR}
     3rdparty/kdepim/
     3rdparty/kdepim/libkdepim/
 )
 
-set(KDEPIM_STATIC_LIBS
-  zanshinkdepimstatic
-  ${KDEPIMLIBS_KRESOURCES_LIBS}
-  ${KDEPIMLIBS_KABC_LIBS}
-  ${KDEPIMLIBS_KPIMUTILS_LIBS}
-  ${KDEPIMLIBS_KLDAP_LIBS}
-  ${KDEPIMLIBS_KPIMIDENTITIES_LIBS}
-  ${KDE4_KCMUTILS_LIBS}
-  ${KDE4_SOLID_LIBS}
-  ${KDEPIMLIBS_KMIME_LIBS}
-  ${KDEPIMLIBS_KPIMTEXTEDIT_LIBS}
-  ${KDEPIMLIBS_KMIME_LIBS}
-  ${KDEPIMLIBS_AKONADI_LIBS}
-  ${KDEPIMLIBS_AKONADI_CONTACT_LIBS}
-  ${KDEPIMLIBS_AKONADI_CALENDAR_LIBS}
-  ${BALOO_LIBRARIES}
+find_package(KF5 REQUIRED COMPONENTS
+    Akonadi
+    AkonadiCalendar
+    AkonadiNotes
+    AkonadiSearch
+    CalendarCore
+    Completion
+    Contacts
+    CoreAddons
+    DocTools
+    I18n
+    IconThemes
+    IdentityManagement
+    KCMUtils
+    KDELibs4Support
+    KHtml
+    KIO
+    KontactInterface
+    Ldap
+    Mime
+    Parts
+    PimTextEdit
+    Plasma
+    Runner
+    WidgetsAddons
 )
 
 add_subdirectory(3rdparty)
-add_subdirectory(attic)
+#add_subdirectory(attic)
 add_subdirectory(src)
 add_subdirectory(tests)
 

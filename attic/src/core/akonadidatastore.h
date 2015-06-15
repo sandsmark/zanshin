@@ -61,7 +61,7 @@ public:
 
     bool isProject(const Akonadi::Item &item) const;
 
-    virtual PimItem::Ptr indexFromUrl(const KUrl &url) const;
+    virtual PimItem::Ptr indexFromUrl(const QUrl &url) const;
 
     virtual bool moveTodoToProject(const PimItem::Ptr &item, const PimItem::Ptr &parent);
 

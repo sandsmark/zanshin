@@ -457,5 +457,3 @@ void KDateEdit::updateView()
   insertItem( 0, dateString );
   blockSignals( blocked );
 }
-
-#include "kdateedit.moc"

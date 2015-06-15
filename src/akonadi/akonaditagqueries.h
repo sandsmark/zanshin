@@ -27,7 +27,7 @@
 
 #include "domain/tagqueries.h"
 
-#include <Akonadi/Item>
+#include <AkonadiCore/Item>
 
 #include "akonadi/akonadimonitorinterface.h"
 #include "akonadi/akonadiserializerinterface.h"

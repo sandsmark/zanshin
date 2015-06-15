@@ -30,7 +30,7 @@
 
 #include <QHash>
 
-#include <Akonadi/Collection>
+#include <AkonadiCore/Collection>
 
 #include "akonadi/akonadimonitorinterface.h"
 #include "akonadi/akonadiserializerinterface.h"

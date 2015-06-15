@@ -31,24 +31,24 @@
 #include <KCalCore/Todo>
 #include <KCalCore/ICalFormat>
 
-#include "akonadi/qtest_akonadi.h"
+#include <AkonadiCore/qtest_akonadi.h>
 
-#include <Akonadi/Collection>
-#include <Akonadi/CollectionCreateJob>
-#include <Akonadi/CollectionDeleteJob>
-#include <Akonadi/CollectionModifyJob>
-#include <Akonadi/CollectionStatistics>
-#include <Akonadi/EntityDisplayAttribute>
-#include <Akonadi/ItemCreateJob>
-#include <Akonadi/ItemDeleteJob>
-#include <Akonadi/ItemModifyJob>
-#include <Akonadi/ItemFetchJob>
-#include <Akonadi/Tag>
-#include <Akonadi/TagCreateJob>
-#include <Akonadi/TagDeleteJob>
-#include <Akonadi/TagFetchJob>
-#include <Akonadi/TagModifyJob>
-#include <Akonadi/TagFetchJob>
+#include <AkonadiCore/Collection>
+#include <AkonadiCore/CollectionCreateJob>
+#include <AkonadiCore/CollectionDeleteJob>
+#include <AkonadiCore/CollectionModifyJob>
+#include <AkonadiCore/CollectionStatistics>
+#include <AkonadiCore/EntityDisplayAttribute>
+#include <AkonadiCore/ItemCreateJob>
+#include <AkonadiCore/ItemDeleteJob>
+#include <AkonadiCore/ItemModifyJob>
+#include <AkonadiCore/ItemFetchJob>
+#include <AkonadiCore/Tag>
+#include <AkonadiCore/TagCreateJob>
+#include <AkonadiCore/TagDeleteJob>
+#include <AkonadiCore/TagFetchJob>
+#include <AkonadiCore/TagModifyJob>
+#include <AkonadiCore/TagFetchJob>
 
 #include "akonadi/akonadiapplicationselectedattribute.h"
 #include "akonadi/akonadicollectionfetchjobinterface.h"
@@ -60,7 +60,7 @@
 #include "akonadi/akonaditagfetchjobinterface.h"
 #include "akonadi/akonaditimestampattribute.h"
 
-#include <Akonadi/CollectionFetchScope>
+#include <AkonadiCore/CollectionFetchScope>
 
 Q_DECLARE_METATYPE(Akonadi::StorageInterface::FetchDepth)
 

@@ -35,7 +35,10 @@ inline bool zCompareHelper(bool isOk,
                            const char *file, int line)
 {
     return isOk
-         ? compare_helper(true, "COMPARE()", file, line)
+         ? compare_helper(true, "COMPARE()",
+                          toString<T>(left), toString<T>(right),
+                          actual, expected,
+                          file, line)
          : compare_helper(false, "Compared values are not the same",
                           toString<T>(left), toString<T>(right),
                           actual, expected,

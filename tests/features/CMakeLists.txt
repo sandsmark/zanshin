@@ -17,7 +17,7 @@ if(Boost_UNIT_TEST_FRAMEWORK_FOUND)
     )
 
     add_custom_target(cucumber-run-done
-                      COMMAND ${cucumber-run-cmd} --tags ~@wip
+                      COMMAND ${cucumber-run-cmd} ~@wip
                       WORKING_DIRECTORY ${CUCUMBER_CWD}
     )
 

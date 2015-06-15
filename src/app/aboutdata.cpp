@@ -22,21 +22,22 @@
 */
 
 #include "aboutdata.h"
+#include <KLocalizedString>
 
 KAboutData App::getAboutData()
 {
-    KAboutData about("zanshin", "zanshin",
-                     ki18n("Zanshin Todo"), "0.2.50",
-                     ki18n("A Getting Things Done application which aims at getting your mind like water"),
-                     KAboutData::License_GPL_V3,
-                     ki18n("Copyright 2008-2014, Kevin Ottens <ervin@kde.org>"));
+    KAboutData about(QStringLiteral("zanshin"),
+                     i18n("Zanshin Todo"), QStringLiteral("0.2.50"),
+                     i18n("A Getting Things Done application which aims at getting your mind like water"),
+                     KAboutLicense::GPL_V3,
+                     i18n("Copyright 2008-2014, Kevin Ottens <ervin@kde.org>"));
 
-    about.addAuthor(ki18n("Kevin Ottens"),
-                    ki18n("Lead Developer"),
+    about.addAuthor(i18n("Kevin Ottens"),
+                    i18n("Lead Developer"),
                     "ervin@kde.org");
 
-    about.addAuthor(ki18n("Mario Bensi"),
-                    ki18n("Developer"),
+    about.addAuthor(i18n("Mario Bensi"),
+                    i18n("Developer"),
                     "nef@ipsquad.net");
 
     return about;

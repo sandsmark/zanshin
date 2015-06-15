@@ -48,7 +48,7 @@ AvailableSourcesView::AvailableSourcesView(QWidget *parent)
     auto searchEdit = new KLineEdit(this);
     searchEdit->setObjectName("searchEdit");
     searchEdit->setClearButtonShown(true);
-    searchEdit->setClickMessage(tr("Search..."));
+    searchEdit->setPlaceholderText(tr("Search..."));
     connect(searchEdit, SIGNAL(textChanged(QString)),
             this, SLOT(onSearchTextChanged(QString)));
 

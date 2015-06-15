@@ -24,8 +24,10 @@
 
 #include "testlib/monitorspy.h"
 
-static int argc = 0;
-static QApplication app(argc, Q_NULLPTR);
+// QApplication gets crashy if it doesn't get any arguments
+static int argc = 1;
+static char *argv[1] = { 0 };
+static QApplication app(argc, argv);
 
 namespace cucumber {
     namespace internal {

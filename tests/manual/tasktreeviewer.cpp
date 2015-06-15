@@ -22,7 +22,7 @@
    USA.
 */
 
-#include <KAboutData>
+#include <K4AboutData>
 #include <KApplication>
 #include <KCmdLineArgs>
 
@@ -40,7 +40,7 @@
 int main(int argc, char **argv)
 {
     App::initializeDependencies();
-    KAboutData about("tasktreeviewer", "tasktreeviewer",
+    K4AboutData about("tasktreeviewer", "tasktreeviewer",
                      ki18n("Show all the tasks in tree"), "1.0");
     KCmdLineArgs::init(argc, argv, &about);
     KApplication app;

@@ -4,19 +4,21 @@ set(app_SRCS
     main.cpp
 )
 
-kde4_add_executable(zanshin-next ${app_SRCS})
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
+add_executable(zanshin-next ${app_SRCS})
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${ECM_ENABLE_EXCEPTIONS}")
 target_link_libraries(zanshin-next
-    ${KDE4_KDEUI_LIBS}
+    KF5::KDELibs4Support
+    KF5::I18n
+    KF5::KontactInterface
+
     akonadi
     domain
     presentation
     scripting
     utils
     widgets
-    ${KDEPIM_STATIC_LIBS}
 )
 
-install(TARGETS zanshin-next DESTINATION ${BIN_INSTALL_DIR})
-install(PROGRAMS zanshin-next.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(TARGETS zanshin-next DESTINATION ${KDE_INSTALL_BINDIR})
+install(PROGRAMS zanshin-next.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES zanshin.appdata.xml DESTINATION share/appdata)

@@ -23,7 +23,7 @@
 
 #include "attachmentsviewer.h"
 
-#include <kurl.h>
+#include <QUrl>
 #include <krun.h>
 #include <KTemporaryFile>
 #include <kmimetype.h>
@@ -60,9 +60,9 @@ void AttachmentsViewer::updateAttachments(KCalCore::Attachment::List const& atta
 
 // code taken from kdepim/calendarsupport/attachmenthandler.cpp
 static KTemporaryFile *s_tempFile = 0;
-static KUrl tempFileForAttachment( const KCalCore::Attachment::Ptr &attachment )
+static QUrl tempFileForAttachment( const KCalCore::Attachment::Ptr &attachment )
 {
-    KUrl url;
+    QUrl url;
 
     s_tempFile = new KTemporaryFile();
     s_tempFile->setAutoRemove( false );
@@ -91,12 +91,12 @@ void AttachmentsViewer::viewAttachment(QListWidgetItem* item)
     int index = item->listWidget()->currentRow();
     KCalCore::Attachment::Ptr attachment = m_attachmentsList.at(index);
     if (attachment->isUri()) {
-        const KUrl url = KUrl(attachment->uri());
+        const QUrl url = QUrl(attachment->uri());
         new KRun(url, this);
     } else {
         // code taken from kdepim/calendarsupport/attachmenthandler.cpp
         // put the attachment in a temporary file and launch it
-        KUrl tempUrl = tempFileForAttachment( attachment );
+        QUrl tempUrl = tempFileForAttachment( attachment );
         if ( tempUrl.isValid() ) {
             KRun::runUrl( tempUrl, attachment->mimeType(), 0, true );
         } else {

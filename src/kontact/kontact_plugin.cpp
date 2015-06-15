@@ -22,15 +22,20 @@
 */
 
 #include "kontact_plugin.h"
+#include "../app/aboutdata.h"
 
-#include <KDE/KontactInterface/Core>
+#include <KontactInterface/Core>
 
 EXPORT_KONTACT_PLUGIN(Plugin, zanshinnext)
 
 Plugin::Plugin(KontactInterface::Core *core, const QVariantList&)
     : KontactInterface::Plugin(core, core, "zanshinnext")
 {
-    setComponentData(KontactPluginFactory::componentData());
+}
+
+const KAboutData Plugin::aboutData()
+{
+    return App::getAboutData();
 }
 
 KParts::ReadOnlyPart *Plugin::createPart()
@@ -38,3 +43,4 @@ KParts::ReadOnlyPart *Plugin::createPart()
     return loadPart();
 }
 
+#include "kontact_plugin.moc"

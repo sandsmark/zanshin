@@ -25,11 +25,11 @@
 
 #include <KCalCore/Todo>
 
-#include <Akonadi/CollectionFetchJob>
-#include <Akonadi/ItemFetchJob>
-#include <Akonadi/ItemFetchScope>
-#include <Akonadi/TagFetchJob>
-#include <Akonadi/TagFetchScope>
+#include <AkonadiCore/CollectionFetchJob>
+#include <AkonadiCore/ItemFetchJob>
+#include <AkonadiCore/ItemFetchScope>
+#include <AkonadiCore/TagFetchJob>
+#include <AkonadiCore/TagFetchScope>
 
 
 void TestLib::AkonadiDebug::dumpTree()

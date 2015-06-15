@@ -25,11 +25,11 @@
 
 #include <KDE/KActionCollection>
 #include <KDE/KPluginFactory>
-#include <KDE/KStandardDirs>
 
 #include <QAction>
 #include <QBoxLayout>
 #include <QSplitter>
+#include <QStandardPaths>
 
 #include "../app/aboutdata.h"
 #include "../app/dependencies.h"
@@ -53,7 +53,7 @@ Part::Part(QWidget *parentWidget, QObject *parent, const QVariantList &)
 {
     App::initializeDependencies();
 
-    setComponentData(PartFactory::componentData());
+    setComponentData(App::getAboutData());
 
     auto splitter = new QSplitter(parentWidget);
     auto sidebar = new QSplitter(Qt::Vertical, parentWidget);
@@ -73,7 +73,7 @@ Part::Part(QWidget *parentWidget, QObject *parent, const QVariantList &)
         actionCollection()->addAction(action->objectName(), action);
     }
 
-    setXMLFile(KStandardDirs::locate("data", "zanshin/zanshin-next_part.rc"));
+    setXMLFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "zanshin/zanshin-next_part.rc"));
 }
 
 Part::~Part()
@@ -85,3 +85,4 @@ bool Part::openFile()
     return false;
 }
 
+#include "part.moc"

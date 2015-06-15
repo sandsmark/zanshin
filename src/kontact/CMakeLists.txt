@@ -4,32 +4,35 @@ set(part_SRCS
     part.cpp
 )
 
-kde4_add_plugin(zanshin-next_part ${part_SRCS})
+add_library(zanshin-next_part MODULE ${part_SRCS})
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
 target_link_libraries(zanshin-next_part
-    ${KDE4_KPARTS_LIBS}
+    KF5::Parts
     akonadi
     domain
     presentation
     scripting
     utils
     widgets
-    ${KDEPIM_STATIC_LIBS}
 )
 
-install(TARGETS zanshin-next_part DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES zanshin-next_part.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(TARGETS zanshin-next_part DESTINATION ${KDE_INSTALL_PLUGINDIR})
+install(FILES zanshin-next_part.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 
 ##########################
 
 set(kontact_SRCS
+    ../app/aboutdata.cpp
     kontact_plugin.cpp
 )
 
-kde4_add_plugin(kontact_zanshinnextplugin ${kontact_SRCS})
-target_link_libraries(kontact_zanshinnextplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS})
+add_library(kontact_zanshinnextplugin MODULE ${kontact_SRCS})
+target_link_libraries(kontact_zanshinnextplugin
+    KF5::Parts
+    KF5::KontactInterface
+    )
 
-install(TARGETS kontact_zanshinnextplugin DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES zanshin-next_plugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
-install(FILES zanshin-next_part.rc DESTINATION ${DATA_INSTALL_DIR}/zanshin)
+install(TARGETS kontact_zanshinnextplugin DESTINATION ${KDE_INSTALL_PLUGINDIR})
+install(FILES zanshin-next_plugin.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR}/kontact)
+install(FILES zanshin-next_part.rc DESTINATION ${KDE_INSTALL_DATADIR}/zanshin)
 
