@@ -34,7 +34,7 @@
 #include <Akonadi/ItemModifyJob>
 #include <Akonadi/ItemFetchJob>
 #include <Akonadi/ItemFetchScope>
-#include <KUrl>
+#include <QUrl>
 
 ProjectStrategy::ProjectStrategy(ProjectStructureCache *structure)
 :   ReparentingStrategy(),
@@ -226,15 +226,15 @@ Qt::DropActions ProjectStrategy::supportedDropActions() const
 
 bool ProjectStrategy::onDropMimeData(Id id, const QMimeData* mimeData, Qt::DropAction action)
 {
-    if (action != Qt::MoveAction || !KUrl::List::canDecode(mimeData)) {
+    if (action != Qt::MoveAction || !mimeData->hasUrls()) {
         return false;
     }
 
-    KUrl::List urls = KUrl::List::fromMimeData(mimeData);
+    QList<QUrl> urls = mimeData->urls();
 
     PimItem::Ptr parentItem = getData(id, Zanshin::PimItemRole).value<PimItem::Ptr>();
 
-    foreach (const KUrl &url, urls) {
+    foreach (const QUrl &url, urls) {
         //TODO make sure we never get here during testing (although we normally shouldn't anyways
         PimItem::Ptr item = DataStoreInterface::instance().indexFromUrl(url);
         if (item->itemType() != PimItem::NoType) {

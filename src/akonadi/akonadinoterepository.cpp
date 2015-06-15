@@ -24,7 +24,7 @@
 
 #include "akonadinoterepository.h"
 
-#include <Akonadi/Item>
+#include <AkonadiCore/Item>
 
 #include "akonadiitemfetchjobinterface.h"
 #include "akonadistoragesettings.h"

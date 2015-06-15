@@ -180,7 +180,7 @@ bool AkonadiDataStore::isProject(const Akonadi::Item &item) const
     return PimItemServices::projectInstance().hasChildren(i->uid());
 }
 
-PimItem::Ptr AkonadiDataStore::indexFromUrl(const KUrl &url) const
+PimItem::Ptr AkonadiDataStore::indexFromUrl(const QUrl &url) const
 {
     const Akonadi::Item urlItem = Akonadi::Item::fromUrl(url);
     Q_ASSERT(urlItem.isValid());

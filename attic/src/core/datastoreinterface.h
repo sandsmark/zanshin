@@ -44,7 +44,7 @@ public:
     virtual QAbstractItemModel *noteBaseModel() = 0;
     virtual QAbstractItemModel *noteCollectionModel() = 0;
 
-    virtual PimItem::Ptr indexFromUrl(const KUrl &url) const = 0;
+    virtual PimItem::Ptr indexFromUrl(const QUrl &url) const = 0;
     virtual bool moveTodoToProject(const PimItem::Ptr &item, const PimItem::Ptr &parent) = 0;
 
 private:

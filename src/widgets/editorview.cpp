@@ -29,8 +29,8 @@
 #include <QLabel>
 #include <QPlainTextEdit>
 #include <QPushButton>
-#include "kdateedit.h"
-#include "addressline/addresseelineedit.h"
+#include <KDateComboBox>
+#include "addressline/addresslineedit/addresseelineedit.h"
 
 #include "domain/artifact.h"
 
@@ -43,8 +43,8 @@ EditorView::EditorView(QWidget *parent)
       m_delegateLabel(new QLabel(this)),
       m_textEdit(new QPlainTextEdit(this)),
       m_taskGroup(new QWidget(this)),
-      m_startDateEdit(new KPIM::KDateEdit(m_taskGroup)),
-      m_dueDateEdit(new KPIM::KDateEdit(m_taskGroup)),
+      m_startDateEdit(new KDateComboBox(m_taskGroup)),
+      m_dueDateEdit(new KDateComboBox(m_taskGroup)),
       m_startTodayButton(new QPushButton(tr("Start today"), m_taskGroup)),
       m_doneButton(new QCheckBox(tr("Done"), m_taskGroup)),
       m_delegateEdit(Q_NULLPTR)

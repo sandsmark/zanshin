@@ -6,29 +6,29 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/testlib")
 
 MACRO(ZANSHIN_MANUAL_TESTS)
   FOREACH(_testname ${ARGN})
-    kde4_add_executable(${_testname} TEST ${_testname}.cpp ${CMAKE_SOURCE_DIR}/src/app/dependencies.cpp)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
+    add_executable(${_testname} ${_testname}.cpp ${CMAKE_SOURCE_DIR}/src/app/dependencies.cpp)
+    kde_enable_exceptions()
     target_link_libraries(${_testname}
-      ${QT_QTTEST_LIBRARY}
-      ${KDE4_KDEUI_LIBS}
+      Qt5::Test
+      Qt5::Widgets
       akonadi
       domain
       presentation
       scripting
       utils
       widgets
-      ${KDEPIM_STATIC_LIBS}
     )
   ENDFOREACH(_testname)
 ENDMACRO(ZANSHIN_MANUAL_TESTS)
 
 MACRO(ZANSHIN_AUTO_TESTS)
   FOREACH(_testname ${ARGN})
-    kde4_add_unit_test(${_testname} TESTNAME zanshin-${_testname} ${_testname}.cpp)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
+    add_executable(${_testname} ${_testname}.cpp)
+    add_test(${_testname} ${_testname})
+    kde_enable_exceptions()
     target_link_libraries(${_testname}
-      ${QT_QTTEST_LIBRARY}
-      ${KDE4_KDEUI_LIBS}
+      Qt5::Test
+      Qt5::Widgets
       testlib
       akonadi
       domain
@@ -36,7 +36,6 @@ MACRO(ZANSHIN_AUTO_TESTS)
       scripting
       utils
       widgets
-      ${KDEPIM_STATIC_LIBS}
     )
   ENDFOREACH(_testname)
 ENDMACRO(ZANSHIN_AUTO_TESTS)

@@ -34,10 +34,7 @@ class QLabel;
 class QPlainTextEdit;
 
 class KLineEdit;
-
-namespace KPIM {
-    class KDateEdit;
-}
+class KDateComboBox;
 
 namespace Widgets {
 
@@ -81,8 +78,8 @@ private:
     QLabel *m_delegateLabel;
     QPlainTextEdit *m_textEdit;
     QWidget *m_taskGroup;
-    KPIM::KDateEdit *m_startDateEdit;
-    KPIM::KDateEdit *m_dueDateEdit;
+    KDateComboBox *m_startDateEdit;
+    KDateComboBox *m_dueDateEdit;
     QAbstractButton *m_startTodayButton;
     QAbstractButton *m_doneButton;
     KLineEdit *m_delegateEdit;

@@ -62,7 +62,7 @@ QAbstractItemModel *MockDataStore::noteCollectionModel()
     return m_noteCollectionModel;
 }
 
-PimItem::Ptr MockDataStore::indexFromUrl(const KUrl &url) const
+PimItem::Ptr MockDataStore::indexFromUrl(const QUrl &url) const
 {
     Q_UNUSED(url)
     return PimItem::Ptr();

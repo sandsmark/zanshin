@@ -33,6 +33,8 @@
 #include <KDE/KIcon>
 #include <KDE/KLocale>
 
+K_EXPORT_PLASMA_RUNNER(zanshin, ZanshinRunner)
+
 Domain::TaskRepository::Ptr createTaskRepository()
 {
     using namespace Akonadi;
@@ -79,7 +81,7 @@ void ZanshinRunner::match(Plasma::RunnerContext &context)
     match.setRelevance(1.0);
 
     matches << match;
-    context.addMatches(context.query(), matches);
+    context.addMatches(matches);
 }
 
 void ZanshinRunner::run(const Plasma::RunnerContext &context, const Plasma::QueryMatch &match)

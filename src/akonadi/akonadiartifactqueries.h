@@ -25,11 +25,11 @@
 #define AKONADI_ARTIFACTQUERIES_H
 
 #include <QHash>
-#include <Akonadi/Item>
+#include <AkonadiCore/Item>
 
-#include "akonadi/akonadimonitorinterface.h"
-#include "akonadi/akonadiserializerinterface.h"
-#include "akonadi/akonadistorageinterface.h"
+#include "akonadimonitorinterface.h"
+#include "akonadiserializerinterface.h"
+#include "akonadistorageinterface.h"
 
 #include "domain/artifactqueries.h"
 #include "domain/livequery.h"

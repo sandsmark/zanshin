@@ -20,7 +20,7 @@
 
 #include "structurecachestrategy.h"
 #include <KIcon>
-#include <KUrl>
+#include <QUrl>
 #include <KLocalizedString>
 #include <QMimeData>
 
@@ -270,8 +270,8 @@ Qt::ItemFlags StructureCacheStrategy::flags(const QModelIndex& index, Qt::ItemFl
 
 bool StructureCacheStrategy::onDropMimeData(Id id, const QMimeData *mimeData, Qt::DropAction action)
 {
-    if (!KUrl::List::canDecode(mimeData) && !mimeData->hasFormat("application/x-vnd.zanshin.relationid")) {
-        kWarning() << "invalid drop " << KUrl::List::canDecode(mimeData);
+    if (!mimeData->hasUrls() && !mimeData->hasFormat("application/x-vnd.zanshin.relationid")) {
+        kWarning() << "invalid drop " << mimeData->hasUrls();
         return false;
     }
 
@@ -287,10 +287,10 @@ bool StructureCacheStrategy::onDropMimeData(Id id, const QMimeData *mimeData, Qt
         return false;
     }
     IdList sourceItems;
-    if (KUrl::List::canDecode(mimeData)) {
-        KUrl::List urls = KUrl::List::fromMimeData(mimeData);
+    if (mimeData->hasUrls()) {
+        QList<QUrl> urls = mimeData->urls();
 //         kDebug() << urls;
-        foreach (const KUrl &url, urls) {
+        foreach (const QUrl &url, urls) {
             const Akonadi::Item urlItem = Akonadi::Item::fromUrl(url);
             if (!urlItem.isValid()) {
                 qWarning() << "invalid item";

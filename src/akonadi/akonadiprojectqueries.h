@@ -26,11 +26,11 @@
 
 #include "domain/projectqueries.h"
 
-#include <KDE/Akonadi/Item>
+#include <AkonadiCore/Item>
 
-#include "akonadi/akonadimonitorinterface.h"
-#include "akonadi/akonadiserializerinterface.h"
-#include "akonadi/akonadistorageinterface.h"
+#include "akonadimonitorinterface.h"
+#include "akonadiserializerinterface.h"
+#include "akonadistorageinterface.h"
 
 #include "domain/livequery.h"
 

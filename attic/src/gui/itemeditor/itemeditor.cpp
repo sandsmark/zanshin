@@ -249,7 +249,7 @@ void ItemEditor::clearView()
     }
 }
 
-void ItemEditor::setItem(const KUrl &url)
+void ItemEditor::setItem(const QUrl &url)
 {
     Akonadi::Item item = Akonadi::Item::fromUrl(url);
     if (!item.isValid()) {

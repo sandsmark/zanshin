@@ -2,9 +2,14 @@ set(_akonaditest_source_dir ${CMAKE_CURRENT_LIST_DIR})
 
 MACRO(ZANSHIN_AKONADI_AUTO_TESTS)
   FOREACH(_testname ${ARGN})
-    kde4_add_executable(${_testname} TEST ${_testname}.cpp)
+    add_executable(${_testname} ${_testname}.cpp)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
-    target_link_libraries(${_testname} ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_AKONADI_LIBS}
+    target_link_libraries(${_testname}
+                                       KF5::CalendarCore
+                                       KF5::AkonadiCore
+                                       KF5::Mime
+                                       Qt5::Test
+
                                        ${KDEPIMLIBS_KCALCORE_LIBS} ${KDEPIMLIBS_KMIME_LIBS} ${QT_QTTEST_LIBRARY}
                                        akonadi
                                        domain

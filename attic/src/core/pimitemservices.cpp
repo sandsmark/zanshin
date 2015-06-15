@@ -28,7 +28,7 @@
 #include <KDE/KGlobal>
 #include <KDE/KLocale>
 #include <KDE/KMessageBox>
-#include <KUrl>
+#include <QUrl>
 
 #include "datastoreinterface.h"
 #include "todohelpers.h"

@@ -21,7 +21,7 @@
    USA.
 */
 
-#include <KAboutData>
+#include <K4AboutData>
 #include <KApplication>
 #include <KCmdLineArgs>
 
@@ -39,7 +39,7 @@
 int main(int argc, char **argv)
 {
     App::initializeDependencies();
-    KAboutData about("tasklister", "tasklister",
+    K4AboutData about("tasklister", "tasklister",
                      ki18n("Lists all the tasks"), "1.0");
     KCmdLineArgs::init(argc, argv, &about);
     KApplication app;

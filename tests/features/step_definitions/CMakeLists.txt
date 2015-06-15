@@ -9,14 +9,14 @@ set(steps_SRCS
     ${CMAKE_SOURCE_DIR}/src/app/dependencies.cpp
 )
 
-kde4_add_executable(zanshin-cuke-steps ${steps_SRCS})
+add_executable(zanshin-cuke-steps ${steps_SRCS})
 target_link_libraries(zanshin-cuke-steps
     cucumber-cpp
     ${Boost_REGEX_LIBRARY}
     ${Boost_SYSTEM_LIBRARY}
     ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
-    ${QT_QTTEST_LIBRARY}
-    ${QT_QTSCRIPT_LIBRARY}
+    Qt5::Test
+    Qt5::Script
 
     testlib
     akonadi

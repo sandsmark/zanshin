@@ -25,7 +25,7 @@
 #ifndef ZANSHINRUNNER_H
 #define ZANSHINRUNNER_H
 
-#include <Plasma/AbstractRunner>
+#include <KRunner/AbstractRunner>
 
 #include "domain/taskrepository.h"
 
@@ -42,7 +42,5 @@ public:
 private:
     Domain::TaskRepository::Ptr m_taskRepository;
 };
-
-K_EXPORT_PLASMA_RUNNER(zanshin, ZanshinRunner)
 
 #endif

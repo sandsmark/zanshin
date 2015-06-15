@@ -65,7 +65,7 @@ public slots:
     /**
      * This will fetch the given item first, before setting it on the editor
      */
-    void setItem(const KUrl &);
+    void setItem(const QUrl &);
     
 private slots:
     ///add tag from tag edit

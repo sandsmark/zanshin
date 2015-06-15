@@ -53,7 +53,7 @@ Part::Part(QWidget *parentWidget, QObject *parent, const QVariantList &)
 {
     App::initializeDependencies();
 
-    setComponentData(PartFactory::componentData());
+//    setComponentData(PartFactory::componentData());
 
     auto splitter = new QSplitter(parentWidget);
     auto sidebar = new QSplitter(Qt::Vertical, parentWidget);
@@ -85,3 +85,4 @@ bool Part::openFile()
     return false;
 }
 
+#include "part.moc"

@@ -29,7 +29,7 @@
 #include <KDebug>
 #include <KIcon>
 #include <KLocale>
-#include <KUrl>
+#include <QUrl>
 #include <QBrush>
 #include <KDE/Akonadi/ItemModifyJob>
 

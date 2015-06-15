@@ -32,8 +32,8 @@
 
 #include "widgets/editorview.h"
 
-#include "addressline/addresseelineedit.h"
-#include "kdateedit.h"
+#include "addressline/addresslineedit/addresseelineedit.h"
+#include <KDateComboBox>
 #include <kglobal.h>
 #include <klocale.h>
 
@@ -119,11 +119,11 @@ private slots:
         QVERIFY(textEdit);
         QVERIFY(textEdit->isVisibleTo(&editor));
 
-        auto startDateEdit = editor.findChild<KPIM::KDateEdit*>("startDateEdit");
+        auto startDateEdit = editor.findChild<KDateComboBox*>("startDateEdit");
         QVERIFY(startDateEdit);
         QVERIFY(!startDateEdit->isVisibleTo(&editor));
 
-        auto dueDateEdit = editor.findChild<KPIM::KDateEdit*>("dueDateEdit");
+        auto dueDateEdit = editor.findChild<KDateComboBox*>("dueDateEdit");
         QVERIFY(dueDateEdit);
         QVERIFY(!dueDateEdit->isVisibleTo(&editor));
 
@@ -147,10 +147,10 @@ private slots:
         EditorModelStub model;
         model.setPropertyAndSignal("hasTaskProperties", true);
 
-        auto startDateEdit = editor.findChild<KPIM::KDateEdit*>("startDateEdit");
+        auto startDateEdit = editor.findChild<KDateComboBox*>("startDateEdit");
         QVERIFY(!startDateEdit->isVisibleTo(&editor));
 
-        auto dueDateEdit = editor.findChild<KPIM::KDateEdit*>("dueDateEdit");
+        auto dueDateEdit = editor.findChild<KDateComboBox*>("dueDateEdit");
         QVERIFY(!dueDateEdit->isVisibleTo(&editor));
 
         auto doneButton = editor.findChild<QAbstractButton*>("doneButton");
@@ -240,10 +240,10 @@ private slots:
         model.makeTaskAvailable();
         editor.setModel(&model);
 
-        auto startDateEdit = editor.findChild<KPIM::KDateEdit*>("startDateEdit");
+        auto startDateEdit = editor.findChild<KDateComboBox*>("startDateEdit");
         QVERIFY(!startDateEdit->isVisibleTo(&editor));
 
-        auto dueDateEdit = editor.findChild<KPIM::KDateEdit*>("dueDateEdit");
+        auto dueDateEdit = editor.findChild<KDateComboBox*>("dueDateEdit");
         QVERIFY(!dueDateEdit->isVisibleTo(&editor));
 
         auto doneButton = editor.findChild<QAbstractButton*>("doneButton");
@@ -272,8 +272,8 @@ private slots:
         model.setProperty("done", true);
 
         auto textEdit = editor.findChild<QPlainTextEdit*>("textEdit");
-        auto startDateEdit = editor.findChild<KPIM::KDateEdit*>("startDateEdit");
-        auto dueDateEdit = editor.findChild<KPIM::KDateEdit*>("dueDateEdit");
+        auto startDateEdit = editor.findChild<KDateComboBox*>("startDateEdit");
+        auto dueDateEdit = editor.findChild<KDateComboBox*>("dueDateEdit");
         auto doneButton = editor.findChild<QAbstractButton*>("doneButton");
 
         // WHEN
@@ -407,7 +407,7 @@ private slots:
         model.setProperty("done", false);
         editor.setModel(&model);
 
-        auto startDateEdit = editor.findChild<KPIM::KDateEdit*>("startDateEdit");
+        auto startDateEdit = editor.findChild<KDateComboBox*>("startDateEdit");
 
         // WHEN
         model.setPropertyAndSignal("startDate", QDateTime::currentDateTime().addDays(-2));
@@ -424,7 +424,7 @@ private slots:
         model.makeTaskAvailable();
         editor.setModel(&model);
 
-        auto startDateEdit = editor.findChild<KPIM::KDateEdit*>("startDateEdit");
+        auto startDateEdit = editor.findChild<KDateComboBox*>("startDateEdit");
         auto today = QDate::currentDate();
 
         // WHEN
@@ -447,7 +447,7 @@ private slots:
         model.setProperty("done", false);
         editor.setModel(&model);
 
-        auto dueDateEdit = editor.findChild<KPIM::KDateEdit*>("dueDateEdit");
+        auto dueDateEdit = editor.findChild<KDateComboBox*>("dueDateEdit");
 
         // WHEN
         model.setPropertyAndSignal("dueDate", QDateTime::currentDateTime().addDays(-2));
@@ -464,7 +464,7 @@ private slots:
         model.makeTaskAvailable();
         editor.setModel(&model);
 
-        auto dueDateEdit = editor.findChild<KPIM::KDateEdit*>("dueDateEdit");
+        auto dueDateEdit = editor.findChild<KDateComboBox*>("dueDateEdit");
         auto today = QDate::currentDate();
 
         // WHEN
@@ -486,7 +486,7 @@ private slots:
 
         QAbstractButton *startTodayButton = editor.findChild<QAbstractButton *>("startTodayButton");
         QVERIFY(startTodayButton);
-        auto startDateEdit = editor.findChild<KPIM::KDateEdit*>("startDateEdit");
+        auto startDateEdit = editor.findChild<KDateComboBox*>("startDateEdit");
         auto today = QDate::currentDate();
 
         // WHEN

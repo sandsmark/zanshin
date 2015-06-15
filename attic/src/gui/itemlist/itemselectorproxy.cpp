@@ -31,7 +31,7 @@
 #include <QTimer>
 #include <QItemSelectionModel>
 #include <QAbstractItemModel>
-#include <KUrl>
+#include <QUrl>
 #include <Akonadi/EntityTreeView>
 
 
